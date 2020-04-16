@@ -1,6 +1,5 @@
 const APIkey = {
     headers: new Headers({
-        "x-api-key":'IVqMcW16jeMCCyCdfkRdd9KfjrZMhJYAwOpSdjB4',
         "accept": 'application/json'})};
 
 const stateAbbrev = {
@@ -74,7 +73,8 @@ function getParksResponse(url, options) {
 }
 
 function formatUrl(userInputString, maxResults) {
-    let getNationalParks = `https://developer.nps.gov/api/vl/parks?${userInputString}&limit=${maxResults}`;
+    let getNationalParks = `https://developer.nps.gov/api/v1/parks?${userInputString}&limit=${maxResults}
+    &api_key=IVqMcW16jeMCCyCdfkRdd9KfjrZMhJYAwOpSdjB4`;
     getParksResponse(getNationalParks, APIkey)
 }
 
