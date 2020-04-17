@@ -56,7 +56,13 @@ const stateAbbrev = {
 }
 
 function displayResults(responseJson) {
-    console.log(responseJson);
+    $('#userStates').val('');
+    for (let i = 0; i < (responseJson['data']).length; i++) {
+    $('#results').append(`<li><h4>${responseJson.data[i].fullName}<h4>
+        <p>${responseJson.data[i].description}</p>
+        <a href='${responseJson.data[i].url}'>${responseJson.data[i].url}</a><br>
+    </li>`)
+    };  
 }
 
 function getParksResponse(url, options) {
@@ -95,6 +101,7 @@ function formatUserInput(userInput, numResults) {
 
 function findUserInput() {
     $('form').submit(event => {
+        $('#results').empty();
         event.preventDefault();
         let userInput = $('#userStates').val().toUpperCase().replace(/\s/g,'').split(',');
         let numResults = $('#maxResults').val();
