@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const APIkey = {
     headers: new Headers({
