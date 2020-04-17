@@ -1,3 +1,5 @@
+'use strict'
+
 const APIkey = {
     headers: new Headers({
         "accept": 'application/json'})};
